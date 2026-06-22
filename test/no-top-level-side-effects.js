@@ -67,6 +67,10 @@ test.snapshot({
 				init();
 			}
 		`,
+		typescriptCode(outdent`
+			export type Foo = string;
+			init();
+		`),
 	],
 	invalid: [
 		outdent`
@@ -87,10 +91,6 @@ test.snapshot({
 			export * from "./module.js";
 			init();
 		`,
-		typescriptCode(outdent`
-			export type Foo = string;
-			init();
-		`),
 		outdent`
 			export {};
 

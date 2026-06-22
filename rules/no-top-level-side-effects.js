@@ -12,7 +12,7 @@ const exportDeclarationTypes = new Set([
 	'ExportNamedDeclaration',
 ]);
 
-const isExportDeclaration = node => exportDeclarationTypes.has(node.type);
+const isExportDeclaration = node => exportDeclarationTypes.has(node.type) && node.exportKind !== 'type';
 
 const isAllowedAssignment = node => unwrapTypeScriptExpression(node).type === 'AssignmentExpression';
 
